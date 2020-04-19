@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## คู่มือการใช้งานระบบสารสนเทศ ของสำนักส่งเสริมวิชาการและงานทะเบียน มหาวิทยาลัยราชภัฏสกลนคร
 
 You can use the [editor on GitHub](https://github.com/snru-ac-th/manual/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
