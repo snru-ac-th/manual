@@ -1,0 +1,15 @@
+{
+    "standardName": "Transcript",
+    "standardCode": "N/A",
+    "version": "2.0.0",
+    "messages" : [
+        {
+            "rootTagName": "Transcript",
+            "versionPath": "/Transcript/TranscriptContext/Version",
+            "schemaFilePath": "/schema/data/standard/Transcript.xsd",
+            "schematronFilePath": "/schematron/DigitalTranscript_Schematron.sch"
+        }
+    ]
+    
+
+}

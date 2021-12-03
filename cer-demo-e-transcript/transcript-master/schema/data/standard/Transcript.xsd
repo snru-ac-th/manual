@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    xmlns:qt="urn:etda:teda:data:QualifiedDataType:1"
+    xmlns:tc="urn:etda:teda:documentation:Transcript:1"
+    targetNamespace="urn:etda:teda:documentation:Transcript:1"
+    xmlns="urn:etda:teda:documentation:Transcript:1" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+
+    <xs:import namespace="urn:etda:teda:data:QualifiedDataType:1"
+        schemaLocation="QualifiedDataType.xsd"/>
+    <xs:import namespace="http://www.w3.org/2000/09/xmldsig#"
+        schemaLocation="xmldsig-core-schema.xsd"/>
+    <xs:element name="Transcript" type="TranscriptType"/>
+    <xs:complexType name="TranscriptType">
+        <xs:sequence>
+            <xs:element name="TranscriptContext" type="TranscriptContextType"/>
+            <xs:element name="Student" type="PersonType"/>
+            <xs:element name="Organization" type="OrganizationType"/>
+            <xs:element name="Course" type="CourseType" maxOccurs="unbounded"/>
+            <xs:element name="AcademicSummary" type="SemesterSummaryType" minOccurs="1"/>
+            <xs:element name="AdditionalInformation" type="AdditionalInformationType" minOccurs="0"
+                maxOccurs="unbounded"/>
+            <xs:element minOccurs="0" ref="ds:Signature"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TranscriptContextType">
+        <xs:sequence>
+            <xs:element name="OID" type="qt:Max140TextType"/>
+            <xs:element name="Version" type="qt:Max16TextType"/>
+            <xs:element name="TranscriptID" type="qt:Max35IDType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+            <qt:UniqueID>UN01005862</qt:UniqueID>
+            <qt:Acronym>BBIE</qt:Acronym>
+            <qt:DictionaryEntryName>_ Exchanged_ Document. Identification. Identifier</qt:DictionaryEntryName>
+            <qt:Version>1.0</qt:Version>
+            <qt:Definition>The unique identifier of this  exchanged document.</qt:Definition>
+            <qt:Cardinality>1</qt:Cardinality>
+            <qt:ObjectClassTerm>Document</qt:ObjectClassTerm>
+            <qt:ObjectClassQualifierTerm/>
+            <qt:ObjectClassQualifierTerm>Exchanged</qt:ObjectClassQualifierTerm>
+            <qt:PropertyTerm>Identification</qt:PropertyTerm>
+            <qt:PrimaryRepresentationTerm>Identifier</qt:PrimaryRepresentationTerm>
+            <qt:BusinessProcessContextValue>Invoicing</qt:BusinessProcessContextValue>
+            <qt:GeopoliticalOrRegionContextValue>In All Contexts</qt:GeopoliticalOrRegionContextValue>
+            <qt:OfficialConstraintContextValue>None</qt:OfficialConstraintContextValue>
+            <qt:ProductContextValue>In All Contexts</qt:ProductContextValue>
+            <qt:IndustryContextValue>Cross Industry</qt:IndustryContextValue>
+            <qt:BusinessProcessRoleContextValue>In All Contexts</qt:BusinessProcessRoleContextValue>
+            <qt:SupportingRoleContextValue>In All Contexts</qt:SupportingRoleContextValue>
+            <qt:SystemCapabilitiesContextValue>In All Contexts</qt:SystemCapabilitiesContextValue>
+          </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Name" type="qt:Max140TextType" minOccurs="0"/>
+            <xs:element name="TypeCode" type="qt:Max16TextType" minOccurs="0"/>
+            <xs:element name="Purpose" type="qt:Max256TextType" minOccurs="0"/>
+            <xs:element name="IssueDateTime" type="qt:ISODateTime">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+            <qt:UniqueID>UN01005865</qt:UniqueID>
+            <qt:Acronym>BBIE</qt:Acronym>
+            <qt:DictionaryEntryName>_ Exchanged_ Document. Issue. Date Time</qt:DictionaryEntryName>
+            <qt:Version>1.0</qt:Version>
+            <qt:Definition>The date, time, date time or other date time value for the issuance of this  exchanged document.</qt:Definition>
+            <qt:Cardinality>1</qt:Cardinality>
+            <qt:ObjectClassTerm>Document</qt:ObjectClassTerm>
+            <qt:ObjectClassQualifierTerm/>
+            <qt:ObjectClassQualifierTerm>Exchanged</qt:ObjectClassQualifierTerm>
+            <qt:PropertyTerm>Issue</qt:PropertyTerm>
+            <qt:PrimaryRepresentationTerm>Date Time</qt:PrimaryRepresentationTerm>
+            <qt:BusinessProcessContextValue>Invoicing</qt:BusinessProcessContextValue>
+            <qt:GeopoliticalOrRegionContextValue>In All Contexts</qt:GeopoliticalOrRegionContextValue>
+            <qt:OfficialConstraintContextValue>None</qt:OfficialConstraintContextValue>
+            <qt:ProductContextValue>In All Contexts</qt:ProductContextValue>
+            <qt:IndustryContextValue>Cross Industry</qt:IndustryContextValue>
+            <qt:BusinessProcessRoleContextValue>In All Contexts</qt:BusinessProcessRoleContextValue>
+            <qt:SupportingRoleContextValue>In All Contexts</qt:SupportingRoleContextValue>
+            <qt:SystemCapabilitiesContextValue>In All Contexts</qt:SystemCapabilitiesContextValue>
+          </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Language" minOccurs="0" type="qt:LanguageCodeType"/>
+            <xs:element name="Status" type="qt:Max140TextType" minOccurs="0"/>
+            <xs:element minOccurs="0" name="Remark" type="qt:Max500TextType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PersonType">
+        <xs:sequence>
+            <xs:element name="DataSubjectID" type="qt:Max35IDType" maxOccurs="unbounded"/>
+            <xs:element name="NamePrefix" type="qt:Max35TextType" maxOccurs="unbounded"
+                minOccurs="0"/>
+            <xs:element name="GivenName" type="qt:Max256TextType" minOccurs="1"
+                maxOccurs="unbounded"/>
+            <xs:element name="MiddleName" type="qt:Max256TextType" minOccurs="0"
+                maxOccurs="unbounded"/>
+            <xs:element name="FamilyName" type="qt:Max256TextType" minOccurs="0"
+                maxOccurs="unbounded"/>
+            <xs:element name="Gender" type="qt:Max16TextType" minOccurs="0"/>
+            <xs:element name="BirthDate" type="qt:ISODateTime" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+            <qt:UniqueID>UN01005865</qt:UniqueID>
+            <qt:Acronym>BBIE</qt:Acronym>
+            <qt:DictionaryEntryName>_ Exchanged_ Document. Issue. Date Time</qt:DictionaryEntryName>
+            <qt:Version>1.0</qt:Version>
+            <qt:Definition>The date, time, date time or other date time value for the issuance of this  exchanged document.</qt:Definition>
+            <qt:Cardinality>1</qt:Cardinality>
+            <qt:ObjectClassTerm>Document</qt:ObjectClassTerm>
+            <qt:ObjectClassQualifierTerm/>
+            <qt:ObjectClassQualifierTerm>Exchanged</qt:ObjectClassQualifierTerm>
+            <qt:PropertyTerm>Issue</qt:PropertyTerm>
+            <qt:PrimaryRepresentationTerm>Date Time</qt:PrimaryRepresentationTerm>
+            <qt:BusinessProcessContextValue>Invoicing</qt:BusinessProcessContextValue>
+            <qt:GeopoliticalOrRegionContextValue>In All Contexts</qt:GeopoliticalOrRegionContextValue>
+            <qt:OfficialConstraintContextValue>None</qt:OfficialConstraintContextValue>
+            <qt:ProductContextValue>In All Contexts</qt:ProductContextValue>
+            <qt:IndustryContextValue>Cross Industry</qt:IndustryContextValue>
+            <qt:BusinessProcessRoleContextValue>In All Contexts</qt:BusinessProcessRoleContextValue>
+            <qt:SupportingRoleContextValue>In All Contexts</qt:SupportingRoleContextValue>
+            <qt:SystemCapabilitiesContextValue>In All Contexts</qt:SystemCapabilitiesContextValue>
+          </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Nationality" type="qt:CountryIDType" minOccurs="0"/>
+            <xs:element name="ResidentCountryOrTerritoryCode" type="qt:CountryIDType" minOccurs="0"/>
+            <xs:element name="PersonImage" type="xs:base64Binary" minOccurs="0"/>
+            <xs:element name="DateOfAdmission" type="qt:ISODateTime" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+            <qt:UniqueID>UN01005865</qt:UniqueID>
+            <qt:Acronym>BBIE</qt:Acronym>
+            <qt:DictionaryEntryName>_ Exchanged_ Document. Issue. Date Time</qt:DictionaryEntryName>
+            <qt:Version>1.0</qt:Version>
+            <qt:Definition>The date, time, date time or other date time value for the issuance of this  exchanged document.</qt:Definition>
+            <qt:Cardinality>1</qt:Cardinality>
+            <qt:ObjectClassTerm>Document</qt:ObjectClassTerm>
+            <qt:ObjectClassQualifierTerm/>
+            <qt:ObjectClassQualifierTerm>Exchanged</qt:ObjectClassQualifierTerm>
+            <qt:PropertyTerm>Issue</qt:PropertyTerm>
+            <qt:PrimaryRepresentationTerm>Date Time</qt:PrimaryRepresentationTerm>
+            <qt:BusinessProcessContextValue>Invoicing</qt:BusinessProcessContextValue>
+            <qt:GeopoliticalOrRegionContextValue>In All Contexts</qt:GeopoliticalOrRegionContextValue>
+            <qt:OfficialConstraintContextValue>None</qt:OfficialConstraintContextValue>
+            <qt:ProductContextValue>In All Contexts</qt:ProductContextValue>
+            <qt:IndustryContextValue>Cross Industry</qt:IndustryContextValue>
+            <qt:BusinessProcessRoleContextValue>In All Contexts</qt:BusinessProcessRoleContextValue>
+            <qt:SupportingRoleContextValue>In All Contexts</qt:SupportingRoleContextValue>
+            <qt:SystemCapabilitiesContextValue>In All Contexts</qt:SystemCapabilitiesContextValue>
+          </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="FacultyName" type="qt:Max256TextType" minOccurs="1"
+                maxOccurs="unbounded"/>
+            <xs:element name="ProgramContext" type="ProgramType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="DateOfGraduation" type="qt:ISODateTime" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+            <qt:UniqueID>UN01005865</qt:UniqueID>
+            <qt:Acronym>BBIE</qt:Acronym>
+            <qt:DictionaryEntryName>_ Exchanged_ Document. Issue. Date Time</qt:DictionaryEntryName>
+            <qt:Version>1.0</qt:Version>
+            <qt:Definition>The date, time, date time or other date time value for the issuance of this  exchanged document.</qt:Definition>
+            <qt:Cardinality>1</qt:Cardinality>
+            <qt:ObjectClassTerm>Document</qt:ObjectClassTerm>
+            <qt:ObjectClassQualifierTerm/>
+            <qt:ObjectClassQualifierTerm>Exchanged</qt:ObjectClassQualifierTerm>
+            <qt:PropertyTerm>Issue</qt:PropertyTerm>
+            <qt:PrimaryRepresentationTerm>Date Time</qt:PrimaryRepresentationTerm>
+            <qt:BusinessProcessContextValue>Invoicing</qt:BusinessProcessContextValue>
+            <qt:GeopoliticalOrRegionContextValue>In All Contexts</qt:GeopoliticalOrRegionContextValue>
+            <qt:OfficialConstraintContextValue>None</qt:OfficialConstraintContextValue>
+            <qt:ProductContextValue>In All Contexts</qt:ProductContextValue>
+            <qt:IndustryContextValue>Cross Industry</qt:IndustryContextValue>
+            <qt:BusinessProcessRoleContextValue>In All Contexts</qt:BusinessProcessRoleContextValue>
+            <qt:SupportingRoleContextValue>In All Contexts</qt:SupportingRoleContextValue>
+            <qt:SystemCapabilitiesContextValue>In All Contexts</qt:SystemCapabilitiesContextValue>
+          </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CreditsTranferred" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="PreviousCertificate" type="qt:Max500TextType" minOccurs="0"/>
+            <xs:element name="PreviousHons" type="qt:Max256TextType" minOccurs="0"/>
+            <xs:element name="PreviousOrganization" type="qt:Max256TextType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FacultyType">
+        <xs:sequence>
+            <xs:element name="FacultyName" type="qt:Max256TextType"/>
+            <xs:element minOccurs="0" name="Major" type="qt:Max256TextType"/>
+            <xs:element minOccurs="0" name="Minor" type="qt:Max256TextType"/>
+            <xs:element name="Degree" type="qt:Max256TextType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="OrganizationType">
+        <xs:sequence>
+            <xs:element name="   OrganizationID" type="qt:Max35IDType" maxOccurs="1" minOccurs="0"/>
+            <xs:element name="OrganizationName" type="qt:Max256TextType"/>
+            <xs:element minOccurs="0" name="SchoolLevel" type="qt:Max256TextType"/>
+            <xs:element minOccurs="0" name="Logo" type="xs:base64Binary"/>
+            <xs:element minOccurs="0" name="Address" type="PostalAddressType"/>
+            <xs:element name="CampusContext" type="CampusType" minOccurs="0"/>
+            <xs:element name="Registrar" type="LegalPersonType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AddressType">
+        <xs:sequence>
+            <xs:element name="LineOne" type="qt:Max140TextType"/>
+            <xs:element minOccurs="0" name="LineTwo" type="qt:Max140TextType"/>
+            <xs:element minOccurs="0" name="LineThree" type="qt:Max140TextType"/>
+            <xs:element minOccurs="0" name="LineFour" type="qt:Max140TextType"/>
+            <xs:element minOccurs="0" name="LineFive" type="qt:Max140TextType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CourseType">
+        <xs:sequence>
+            <xs:element name="CourseNumber" type="qt:Max35IDType"/>
+            <xs:element name="TypeCode" type="qt:Max140TextType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="CourseTitle" type="qt:Max256TextType" maxOccurs="unbounded"/>
+            <xs:element name="CourseCreditValue" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="CourseCreditEarned" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="CourseAcademicGrade" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="CourseAcademicGradeText" type="qt:Max35TextType" minOccurs="0"/>
+            <xs:element name="CoursePointEarned" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="EducationTypeSystem" type="qt:Max256TextType" minOccurs="0"/>
+            <xs:element name="SemesterName" type="qt:Max256TextType" minOccurs="0"/>
+            <xs:element name="Year" type="xs:gYear" minOccurs="0"/>
+            <xs:element name="CourseTransfer" type="CourseTransferType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="SemesterType">
+        <xs:sequence>
+            <xs:element name="EducationTypeSystem" type="qt:Max256TextType" minOccurs="0"/>
+            <xs:element name="SemesterName" type="qt:Max256TextType"/>
+            <xs:element name="SemesterStatus" type="qt:Max256TextType" minOccurs="0"/>
+            <xs:element minOccurs="1" name="Year" type="xs:gYear"/>
+            <xs:element name="SemesterCreditValue" type="xs:decimal" maxOccurs="1" minOccurs="0"/>
+            <xs:element name="SemesterCreditEarned" type="xs:decimal" maxOccurs="1" minOccurs="0"/>
+            <xs:element name="SemesterCreditCalculated" type="xs:decimal" maxOccurs="1"
+                minOccurs="0"/>
+            <xs:element name="SemesterPointEarned" type="xs:decimal" maxOccurs="1" minOccurs="0"/>
+            <xs:element name="SemesterGPA" type="xs:decimal" maxOccurs="1" minOccurs="0"/>
+            <xs:element name="SemesterGPAX" type="xs:decimal" maxOccurs="1" minOccurs="0"/>
+            <xs:element minOccurs="0" name="Remark" type="qt:Max500TextType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="SemesterSummaryType">
+        <xs:sequence>
+            <xs:element name="SemesterSummary" type="SemesterType" maxOccurs="unbounded"
+                minOccurs="1"/>
+            <xs:element name="TotalCreditValue" type="xs:decimal" maxOccurs="1" minOccurs="0"/>
+            <xs:element name="TotalCreditEarned" type="xs:decimal" maxOccurs="1" minOccurs="0"/>
+            <xs:element name="TotalCreditCalculated" type="xs:decimal" maxOccurs="1" minOccurs="0"/>
+            <xs:element name="TotalPointEarned" type="xs:decimal" maxOccurs="1" minOccurs="0"/>
+            <xs:element name="TotalGPAX" type="xs:decimal" maxOccurs="1" minOccurs="0"/>
+            <xs:element minOccurs="0" name="Remark" type="qt:Max500TextType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TextType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="languageCode" type="xs:language" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="NameInfoType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="CitizenID" type="qt:Max35IDType"/>
+            <xs:element minOccurs="0" name="PassportNumber" type="qt:Max35IDType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="Max5TextType">
+        <xs:restriction base="xs:token">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="PostalAddressType">
+        <xs:sequence>
+            <xs:element name="BuildingNumber" type="qt:Max140TextType" minOccurs="0"/>
+            <xs:element minOccurs="0" name="BuildingName" type="qt:Max140TextType"/>
+            <xs:element name="LineOne" type="qt:Max140TextType" minOccurs="0"/>
+            <xs:element minOccurs="0" name="LineTwo" type="qt:Max140TextType"/>
+            <xs:element minOccurs="0" name="LineThree" type="qt:Max140TextType"/>
+            <xs:element minOccurs="0" name="LineFour" type="qt:Max140TextType"/>
+            <xs:element minOccurs="0" name="LineFive" type="qt:Max140TextType"/>
+            <xs:element minOccurs="0" name="AdditionalStreetName" type="qt:Max140TextType"/>
+            <xs:element minOccurs="0" name="StreetName" type="qt:Max140TextType"/>
+            <xs:element minOccurs="0" name="CitySubDivisionName" type="qt:Max140TextType"/>
+            <xs:element minOccurs="0" name="CityName" type="qt:Max140TextType"/>
+            <xs:element minOccurs="0" name="CountrySubDivisionName" type="qt:Max140TextType"/>
+            <xs:element minOccurs="0" name="CitySubDivisionID" type="qt:ThaiCitySubDivisionName"/>
+            <xs:element minOccurs="0" name="CityID" type="qt:ThaiCityName"/>
+            <xs:element minOccurs="0" name="CountrySubDivisionID"
+                type="qt:ThaiCountrySubDivisionCode"/>
+            <xs:element minOccurs="1" name="CountryCode" type="qt:CountryIDType" maxOccurs="1"/>
+            <xs:element minOccurs="1" name="PostcodeCode" type="qt:Max16TextType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="LegalPersonType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ID" type="qt:Max35IDType"/>
+            <xs:element minOccurs="0" name="Title" type="qt:Max140TextType"/>
+            <xs:element name="NamePrefix" type="qt:Max35TextType" maxOccurs="1" minOccurs="0"/>
+            <xs:element name="Name" type="qt:Max500TextType"/>
+            <xs:element maxOccurs="1" minOccurs="1" name="RegistrarEmailAddress"
+                type="qt:Max256TextType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CourseTransferType">
+        <xs:sequence>
+            <xs:element name="CourseTransferCode" type="qt:Max35TextType" minOccurs="0"/>
+            <xs:element name="OrganizationName" type="qt:Max256TextType" minOccurs="0"/>
+            <xs:element minOccurs="0" name="ProgramName" type="qt:Max256TextType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AdditionalInformationType">
+        <xs:sequence>
+            <xs:element name="Hons" type="qt:Max256TextType" minOccurs="0"/>
+            <xs:element name="ThesisTitle" type="qt:Max500TextType" minOccurs="0"/>
+            <xs:element name="InfomationNote" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="NoteType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Subject" type="qt:Max500TextType"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Content" type="qt:Max500TextType"
+            />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ProgramType">
+        <xs:sequence>
+            <xs:element name="ProgramID" type="qt:Max35IDType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+            <qt:UniqueID>UN01005862</qt:UniqueID>
+            <qt:Acronym>BBIE</qt:Acronym>
+            <qt:DictionaryEntryName>_ Exchanged_ Document. Identification. Identifier</qt:DictionaryEntryName>
+            <qt:Version>1.0</qt:Version>
+            <qt:Definition>The unique identifier of this  exchanged document.</qt:Definition>
+            <qt:Cardinality>1</qt:Cardinality>
+            <qt:ObjectClassTerm>Document</qt:ObjectClassTerm>
+            <qt:ObjectClassQualifierTerm/>
+            <qt:ObjectClassQualifierTerm>Exchanged</qt:ObjectClassQualifierTerm>
+            <qt:PropertyTerm>Identification</qt:PropertyTerm>
+            <qt:PrimaryRepresentationTerm>Identifier</qt:PrimaryRepresentationTerm>
+            <qt:BusinessProcessContextValue>Invoicing</qt:BusinessProcessContextValue>
+            <qt:GeopoliticalOrRegionContextValue>In All Contexts</qt:GeopoliticalOrRegionContextValue>
+            <qt:OfficialConstraintContextValue>None</qt:OfficialConstraintContextValue>
+            <qt:ProductContextValue>In All Contexts</qt:ProductContextValue>
+            <qt:IndustryContextValue>Cross Industry</qt:IndustryContextValue>
+            <qt:BusinessProcessRoleContextValue>In All Contexts</qt:BusinessProcessRoleContextValue>
+            <qt:SupportingRoleContextValue>In All Contexts</qt:SupportingRoleContextValue>
+            <qt:SystemCapabilitiesContextValue>In All Contexts</qt:SystemCapabilitiesContextValue>
+          </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ProgramName" type="qt:Max256TextType"/>
+            <xs:element minOccurs="0" name="Major" type="qt:Max256TextType"/>
+            <xs:element minOccurs="0" name="Minor" type="qt:Max256TextType"/>
+            <xs:element name="Degree" type="qt:Max256TextType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CampusType">
+        <xs:sequence>
+            <xs:element name="CampusID" type="qt:Max35IDType" maxOccurs="1" minOccurs="0"/>
+            <xs:element name="CampusName" type="qt:Max256TextType"/>
+            <xs:element minOccurs="0" name="Address" type="PostalAddressType"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
