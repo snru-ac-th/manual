@@ -1,7 +1,7 @@
 graph LR
     User((User)) --> |HTTP Request| A[A: Nginx<br>on VM]
     A --> |Forward Request| B[B: Nginx Proxy Manager<br>on Docker]
-    B --> |Forward Request| C[C: Apache Web Server]
+    B --> |Forward Request| C[C: Apache Web Server <br>on Docker]
     
     subgraph "First Reverse Proxy"
     A
